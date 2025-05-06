@@ -26,12 +26,12 @@
  */
 
 
-function auto_image($attachment_id) {
-    $mime_type = get_post_mime_type($attachment_id);
-    if(stropos($mime_type, 'image')!== false) {
-        $image_title = get_the_title($attachment_id);
-        update_post_meta($attachment_id, '_wp_attachment_image_alt', $image_title);
-    }
+ function auto_image_alt($attachment_id) {
+	$mime_type = get_post_mime_type($attachment_id);
+	if(strpos($mime_type, 'image') !== false) {
+		$image_title = get_the_title($attachment_id);
+		update_post_meta($attachment_id, '_wp_attachment_image_alt', $image_title);
+	}
 }
 
-add_action('add_attachment', 'auto_image');
+add_action('add_attachment', 'auto_image_alt');
