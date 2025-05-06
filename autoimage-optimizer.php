@@ -26,7 +26,7 @@
  */
 
 
-function auto_image ($attachment_id) {
+function auto_image($attachment_id) {
     $mime_type = get_post_mime_type($attachment_id);
     if(stropos($mime_type, 'image')!== false) {
         $image_title = get_the_title($attachment_id);
@@ -34,4 +34,4 @@ function auto_image ($attachment_id) {
     }
 }
 
-add_action('add_attachment', 'auto_iimage_alt');
+add_action('add_attachment', 'auto_image');
